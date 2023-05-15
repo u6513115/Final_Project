@@ -1,16 +1,17 @@
+#include <iostream>
+#include <exception>
 #include "pokemon.h"
 #include "pokemonList.h"
 #include "monsterinfo.h"
 #include "battle.h"
 
-
-
-int main(){
+int main()
+{
     int choice = 0;
-    int Attack = 0,enemyAttack = 0;
+    int Attack = 0, enemyAttack = 0;
     int check_loop = 1;
     string err;
-    pokemon* ptr;
+    pokemon *ptr;
     list bag;
     system("cls");
     do
@@ -61,33 +62,40 @@ int main(){
         }
 
     } while (check_loop);
-    for(int i = 0 ; i < 10 ; i++){
+    for (int i = 0; i < 10; i++)
+    {
         system("cls");
-        if(i > 1 ){
-            cout<< i+1 << " round"<<endl;
+        if (i > 1)
+        {
+            cout << i + 1 << " round" << endl;
         }
-       //cout<<bag.getSize();
-        if(bag.getSize() < 1){
-            cout << "GameOver"<<endl;
+        // cout<<bag.getSize();
+        if (bag.getSize() < 1)
+        {
+            cout << "GameOver" << endl;
             break;
         }
-        cout<<mon[i].getName()<<" Appear!!!"<<endl;
-        cout<<"Go get Em,"<<ptr->getName()<< "!!!"<<endl;
-        cout<<"----------------------------"<<endl;
-        cout<<ptr->getName()<<"'s Skill:"<<endl;
-        for(int j = 0 ; j < 4 ;j++){
-            cout<<"["<<j + 1<<"]"<<ptr->skill[j]<<endl;
+        cout << mon[i].getName() << " Appear!!!" << endl;
+        cout << "Go get Em," << ptr->getName() << "!!!" << endl;
+        cout << "----------------------------" << endl;
+        cout << ptr->getName() << "'s Skill:" << endl;
+        for (int j = 0; j < 4; j++)
+        {
+            cout << "[" << j + 1 << "]" << ptr->skill[j] << endl;
         }
-        cout<<endl<<mon[i].getName()<<"'s Skill:"<<endl;
-        for(int k = 0 ; k < 4 ;k++){
-           cout<<"["<<k + 1<<"]"<<mon[i].skill[k]<<endl;
+        cout << endl
+             << mon[i].getName() << "'s Skill:" << endl;
+        for (int k = 0; k < 4; k++)
+        {
+            cout << "[" << k + 1 << "]" << mon[i].skill[k] << endl;
         }
-        cout<<"----------------------------"<<endl;
-        battle(ptr,bag,Attack, enemyAttack,mon[i]);
-        if(i == 10) cout<<"You win"<<endl;
+        cout << "----------------------------" << endl;
+        battle(ptr, bag, Attack, enemyAttack, mon[i]);
+        if (i == 10)
+            cout << "You win" << endl;
         system("PAUSE");
         system("cls");
     }
-    //bag.show_all();
+    // bag.show_all();
     return 0;
 }
